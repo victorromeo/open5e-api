@@ -56,6 +56,17 @@ The API uses the Django REST Framework for it's browsability and ease of use whe
 
 # Installation
 
+## Quick Start
+
+Using docker and docker compose
+
+```sh
+./build/up.sh
+./build/quickstart.sh
+```
+
+Then open the site `http://localhost:8000/` in a web-browser.
+
 ## Requirements
 
 - [Python 3.11](https://www.python.org/downloads/)

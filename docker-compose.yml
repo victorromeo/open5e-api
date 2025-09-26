@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  open5e-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: open5e-api
+    command: pipenv run gunicorn -b :8888 server.wsgi:application
+    ports:
+      - "8000:8888"
+    volumes:
+      - .:/opt/services/open5e-api
+    environment:
+      - DJANGO_SETTINGS_MODULE=server.settings
+      - PYTHONUNBUFFERED=1
+      - SECRET_KEY=REPLACE-ME-WITH-SECURE-KEY
+      - OPEN5E_DEBUG=True
+      - SERVER_NAME=localhost
+    restart: unless-stopped
